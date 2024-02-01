@@ -7,6 +7,10 @@ body {
 	background: #E5E5E5;
 }
 
+h1 {
+	margin-bottom: 50px;
+}
+
 main {
 	max-width: 800px;
 	width: 90%;
