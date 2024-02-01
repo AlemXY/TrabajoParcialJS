@@ -7,10 +7,6 @@ body {
 	background: #E5E5E5;
 }
 
-h1 {
-	margin-bottom: 50px;
-}
-
 main {
 	max-width: 800px;
 	width: 90%;
@@ -58,6 +54,15 @@ main {
 	display: none;
 }
 
+
+#alertErrorAdulto,
+#alertErrorDestino,
+#alertErrorNinos,
+#alertErrorClase{
+	font-size: 12px;
+	margin-bottom: 0;
+	color: red;
+}
 .formulario__input-error-activo {
 	display: block;
 }
@@ -165,4 +170,15 @@ main {
 	.formulario__btn {
 		width: 100%;
 	}
+}
+
+.ContentFormsRadios{
+	display: flex;
+	height: 45px;
+    align-items: center;
+
+}
+
+.FormsRadios{
+	width: 50%;
 }

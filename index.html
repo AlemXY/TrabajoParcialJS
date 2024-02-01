@@ -10,42 +10,23 @@
 </head>
 <body>
 	<main>
-		<h1>Formulario de Registro de Cuenta</h1>
-		<form action="" class="formulario" id="formulario">
+		<form action="" class="formulario" id="formulario" name="formulario">
 			<div class="formulario__grupo" id="grupo__usuario">
-				<label for="usuario" class="formulario__label">Usuario</label>
+				<label for="usuario" class="formulario__label">Nombres</label>
 				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Ingrese su usuario">
-					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
-				</div>
-				<p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guión bajo</p>
-			</div>
-
-			<div class="formulario__grupo" id="grupo__nombre">
-				<label for="nombre" class="formulario__label">Nombre</label>
-				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+					<input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Ingrese sus nombres">
 					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
 				</div>
 				<p class="formulario__input-error">El nombre tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guión bajo</p>
 			</div>
-
-			<div class="formulario__grupo" id="grupo__password">
-				<label for="password" class="formulario__label">Contraseña</label>
+			
+			<div class="formulario__grupo" id="grupo__nombre">
+				<label for="nombre" class="formulario__label">Apellidos</label>
 				<div class="formulario__grupo-input">
-					<input type="password" class="formulario__input" name="password" id="password">
+					<input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Ingrese sus apellidos">
 					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
 				</div>
-				<p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos</p>
-			</div>
-
-			<div class="formulario__grupo" id="grupo__password2">
-				<label for="password2" class="formulario__label">Repetir contraseña</label>
-				<div class="formulario__grupo-input">
-					<input type="password" class="formulario__input" name="password2" id="password2">
-					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
-				</div>
-				<p class="formulario__input-error">Ambas contraseñas deben ser iguales</p>
+				<p class="formulario__input-error">El apellido tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guión bajo</p>
 			</div>
 
 			<div class="formulario__grupo" id="grupo__correo">
@@ -66,11 +47,68 @@
 				<p class="formulario__input-error">El teléfono solo puede contener números y el máximo son 14 dígitos</p>
 			</div>
 
-			<div class="formulario__grupo" id="grupo__terminos">
-				<label class="formulario__label">
-					<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
-					Acepto los Términos y Condiciones
-				</label>
+			<div class="formulario__grupo" id="grupo__destino">
+				<label for="destino" class="formulario__label">Destino Turístico</label>
+				<div class="formulario__grupo-input">
+					<select class="formulario__input" name="destino" id="destino">
+						<option value="">Selecciona un destino</option>
+						<option value="destino1">Destino 1</option>
+						<option value="destino2">Destino 2</option>
+						<option value="destino3">Destino 3</option>
+						<option value="destino4">Destino 4</option>
+						<option value="destino5">Destino 5</option>
+					</select>
+				</div>
+				<p id="alertErrorDestino"></p>
+			</div>		
+
+			<div class="formulario__grupo" id="grupo__adultos">
+				<label for="adultos" class="formulario__label">Número de Adultos</label>
+				<div class="formulario__grupo-input">
+					<select class="formulario__input" name="adultos" id="adultos">
+						<option value="" >Selecciona el número de adultos</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="+4">+4</option>
+					</select>
+				</div>
+				<p id="alertErrorAdulto"></p>
+			</div>
+
+			<div class="formulario__grupo" id="grupo__ninos">
+				<label for="ninos" class="formulario__label">Número de Niños</label>
+				<div class="formulario__grupo-input">
+					<select class="formulario__input" name="ninos" id="ninos">
+						<option value="">Selecciona el número de niños</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="+4">+4</option>
+					</select>
+				</div>
+				<p id="alertErrorNinos"></p>
+			</div>
+
+			<div class="formulario__grupo" id="grupo__edadAdultos">
+				<label for="edadAdultos" class="formulario__label">Clase </label>
+				<div class="formulario__grupo-input ContentFormsRadios">
+ 
+							<div class="form-check FormsRadios">
+								<input class="form-check-input" type="radio" name="RadiosClases" id="RadioClase1"
+									value="Primera Clase">
+								<label class="form-check-label" for="RadioAdulto1">Primera Clase</label>
+							</div> 
+							<div class="form-check FormsRadios">
+								<input class="form-check-input" type="radio" name="RadiosClases" id="RadioClase2"
+									value="Clase turista">
+								<label class="form-check-label" for="RadioAdulto3">Clase turista</label>
+							</div>  
+				</div>
+				<p id="alertErrorClase"></p> 
 			</div>
 
 			<div class="formulario__mensaje" id="formulario__mensaje">

@@ -1,48 +1,50 @@
 const formulario = document.getElementById("formulario");
 const inputs = document.querySelectorAll("#formulario input");
+ 
+const destino = document.getElementById("destino");
+const adultos = document.getElementById("adultos");
+const ninos = document.getElementById("ninos");
 
 const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/,
+	usuario: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
-	password: /^.{4,12}$/,
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/
+	telefono: /^\d{7,14}$/,
+	destino: /^[1-9]\d*$/,
+	adultos: /^(0|[1-9]\d*)$/,
+	ninos: /^[0-9]+$/,
 }
 
 const campos = {
 	usuario: false,
 	nombre: false,
-	password: false,
 	correo: false,
-	telefono: false
+	telefono: false,
+	destino: false,
+	adultos: false,
+	ninos: false,
+	RadiosClases: false
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "usuario":
 			validarCampo(expresiones.usuario, e.target, "usuario");
-		break;
+			break;
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, "nombre");
-		break;
-		case "password":
-			validarCampo(expresiones.password, e.target, "password");
-			validarPassword2();
-		break;
-		case "password2":
-			validarPassword2();
-		break;
+			break;
 		case "correo":
 			validarCampo(expresiones.correo, e.target, "correo");
-		break;
+			break;
 		case "telefono":
 			validarCampo(expresiones.telefono, e.target, "telefono");
-		break;
+			break; 
 	}
 }
-
+ 
 const validarCampo = (expresion, input, campo) => {
-	if(expresion.test(input.value)){
+	if (expresion.test(input.value)) {
 		document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-incorrecto");
 		document.getElementById(`grupo__${campo}`).classList.add("formulario__grupo-correcto");
 		document.querySelector(`#grupo__${campo} i`).classList.remove("fa-circle-xmark");
@@ -59,37 +61,19 @@ const validarCampo = (expresion, input, campo) => {
 	}
 }
 
-const validarPassword2 = () => {
-	const inputPassword1 = document.getElementById("password");
-	const inputPassword2 = document.getElementById("password2");
-
-	if(inputPassword1.value !== inputPassword2.value){
-		document.getElementById(`grupo__password2`).classList.add("formulario__grupo-incorrecto");
-		document.getElementById(`grupo__password2`).classList.remove("formulario__grupo-correcto");
-		document.querySelector(`#grupo__password2 i`).classList.add("fa-circle-xmark");
-		document.querySelector(`#grupo__password2 i`).classList.remove("fa-circle-check");
-		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.add("formulario__input-error-activo");
-		campos["password"] = false;
-	} else {
-		document.getElementById(`grupo__password2`).classList.remove("formulario__grupo-incorrecto");
-		document.getElementById(`grupo__password2`).classList.add("formulario__grupo-correcto");
-		document.querySelector(`#grupo__password2 i`).classList.remove("fa-circle-xmark");
-		document.querySelector(`#grupo__password2 i`).classList.add("fa-circle-check");
-		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.remove("formulario__input-error-activo");
-		campos["password"] = true;
-	}
-}
-
 inputs.forEach((input) => {
 	input.addEventListener("keyup", validarFormulario);
 	input.addEventListener("blur", validarFormulario);
 });
 
+
+
 formulario.addEventListener("submit", (e) => {
 	e.preventDefault();
+	validarSelects();
+	validarRadios(); 
 
-	const terminos = document.getElementById("terminos");
-	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked){
+	if (campos.usuario && campos.nombre && campos.correo && campos.telefono && campos.destino && campos.adultos && campos.ninos && campos.RadiosClases) {
 		formulario.reset();
 
 		document.getElementById("formulario__mensaje-exito").classList.add("formulario__mensaje-exito-activo");
@@ -107,3 +91,55 @@ formulario.addEventListener("submit", (e) => {
 		}, 5000);
 	}
 });
+
+
+function validarSelects() {
+	destino.value !== ''
+		? ( 
+			document.getElementById("alertErrorDestino").innerHTML = "",
+			campos.destino = true
+		)
+		: ( 
+			document.getElementById("alertErrorDestino").innerHTML = "Selecciona un destino turístico",
+			campos.destino = false
+			);
+
+
+	adultos.value !== ''
+		? ( 
+			document.getElementById("alertErrorAdulto").innerHTML = "",
+			campos.adultos = true
+			)
+		: ( 
+			document.getElementById("alertErrorAdulto").innerHTML = "Selecciona cantidad de adultos",
+			campos.adultos =  false
+		);
+
+	ninos.value !== ''
+		? ( 
+			document.getElementById("alertErrorNinos").innerHTML = "",
+			campos.ninos = true
+		)
+		: ( 
+			document.getElementById("alertErrorNinos").innerHTML = "Selecciona cantidad de niños",
+			campos.ninos = false
+		);
+ 
+}
+
+function validarRadios() {
+
+	var respuesta = "no";
+	for (let i = 0; i < document.formulario.RadiosClases.length; i++){
+		if (document.formulario.RadiosClases[i].checked){
+			document.getElementById("alertErrorClase").innerHTML = "";
+			respuesta = "si";
+			campos.RadiosClases = true
+		}
+	}
+	if (respuesta == "no"){
+		document.getElementById("alertErrorClase").innerHTML = "Selecciona una clase"
+		campos.RadiosClases = false
+	}
+
+}
