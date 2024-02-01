@@ -1,10 +1,11 @@
 const formulario = document.getElementById("formulario");
 const inputs = document.querySelectorAll("#formulario input");
- 
+
 const destino = document.getElementById("destino");
 const adultos = document.getElementById("adultos");
 const ninos = document.getElementById("ninos");
 
+/*Expresiones regulares*/
 const expresiones = {
 	usuario: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
@@ -15,6 +16,7 @@ const expresiones = {
 	ninos: /^[0-9]+$/,
 }
 
+/*Objeto de los campos principales con un inicio en false*/
 const campos = {
 	usuario: false,
 	nombre: false,
@@ -26,6 +28,7 @@ const campos = {
 	RadiosClases: false
 }
 
+/*Switch para validar los campos input del formulario*/
 const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "usuario":
@@ -42,7 +45,8 @@ const validarFormulario = (e) => {
 			break; 
 	}
 }
- 
+
+/*Validación de los campos e iconos*/
 const validarCampo = (expresion, input, campo) => {
 	if (expresion.test(input.value)) {
 		document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-incorrecto");
@@ -61,13 +65,14 @@ const validarCampo = (expresion, input, campo) => {
 	}
 }
 
+/*Eventos al escribir y clickear en los inputs*/
 inputs.forEach((input) => {
 	input.addEventListener("keyup", validarFormulario);
 	input.addEventListener("blur", validarFormulario);
 });
 
 
-
+/*Validación al presionar el botón*/
 formulario.addEventListener("submit", (e) => {
 	e.preventDefault();
 	validarSelects();
@@ -93,7 +98,7 @@ formulario.addEventListener("submit", (e) => {
 	}
 });
 
-
+/*Validación de selects*/
 function validarSelects() {
 	destino.value !== ''
 		? ( 
@@ -128,6 +133,7 @@ function validarSelects() {
  
 }
 
+/*Validación de radios*/
 function validarRadios() {
 
 	var respuesta = "no";
