@@ -55,6 +55,8 @@ main {
 }
 
 
+#alertErrorRetorno,
+#alertErrorSalida,/*mar*/
 #alertErrorAdulto,
 #alertErrorDestino,
 #alertErrorNinos,
@@ -181,4 +183,9 @@ main {
 
 .FormsRadios{
 	width: 50%;
+}
+
+/*mar*/
+.tipo{
+    grid-column: span 2; 
 }

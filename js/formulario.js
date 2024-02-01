@@ -72,6 +72,7 @@ formulario.addEventListener("submit", (e) => {
 	e.preventDefault();
 	validarSelects();
 	validarRadios(); 
+	validarFecha();
 
 	if (campos.usuario && campos.nombre && campos.correo && campos.telefono && campos.destino && campos.adultos && campos.ninos && campos.RadiosClases) {
 		formulario.reset();
@@ -142,4 +143,60 @@ function validarRadios() {
 		campos.RadiosClases = false
 	}
 
+}
+
+/* mar*/
+let tipo2 = document.getElementById("tipo2");
+tipo2.addEventListener("click", function() {
+  let fecharetornoL = document.getElementById("fecharetornoL");
+  fecharetornoL.style.display = "none";
+});
+
+let tipo1 = document.getElementById("tipo1");
+tipo1.addEventListener("click", function() {
+  let fecharetornoL = document.getElementById("fecharetornoL");
+  fecharetornoL.style.display = "block";
+});
+
+const fechaSalidaInput = document.getElementById("fecha-salida");
+fechaSalidaInput.addEventListener("change", validarFormulario);
+
+const fechaRetornoInput = document.getElementById("fecha-retorno");
+fechaRetornoInput.addEventListener("change", validarFormulario);
+
+function validarFecha()
+{
+    // Validar fechas de salida y retorno
+    var fechaSalida = new Date(document.getElementById("fechasalida").value);
+    var fechaRetorno = new Date(document.getElementById("fecha-retorno").value);
+    var fechaSalidaValidation = document.getElementById("alertErrorSalida");
+    var fechaRetornoValidation = document.getElementById("alertErrorRetorno");
+
+    // Limpiar mensajes de validación anteriores
+    fechaSalidaValidation.innerHTML = "";
+    fechaRetornoValidation.innerHTML = "";
+
+    if (!fechaSalida || isNaN(fechaSalida.getTime())) {
+        fechaSalidaValidation.innerHTML = "Seleccione una fecha de salida";
+        campos.destino = false;
+    } else {
+        fechaSalidaValidation.innerHTML = "";
+        campos.destino = true;
+    }
+
+    if (!fechaRetorno || isNaN(fechaRetorno.getTime())) {
+        fechaRetornoValidation.innerHTML = "Seleccione una fecha de retorno";
+        campos.adultos = false;
+    } else {
+        fechaRetornoValidation.innerHTML = "";
+        campos.adultos = true;
+    }
+
+    if (fechaRetorno < fechaSalida) {
+        fechaRetornoValidation.innerHTML = "La fecha de retorno debe ser igual o posterior a la fecha de salida";
+        campos.ninos = false;
+    } else {
+        fechaRetornoValidation.innerHTML = "";
+        campos.ninos = true;
+    }
 }

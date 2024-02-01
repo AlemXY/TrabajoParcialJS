@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Validación de Formulario con Javascript</title>
 	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
 	<main>
 		<form action="" class="formulario" id="formulario" name="formulario">
 			<div class="formulario__grupo" id="grupo__usuario">
 				<label for="usuario" class="formulario__label">Nombres</label>
 				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Ingrese sus nombres">
+					<input type="text" class="formulario__input" name="usuario" id="usuario"
+						placeholder="Ingrese sus nombres">
 					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
 				</div>
-				<p class="formulario__input-error">El nombre tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guión bajo</p>
+				<p class="formulario__input-error">El nombre tiene que ser de 4 a 16 dígitos y solo puede contener
+					números, letras y guión bajo</p>
 			</div>
-			
+
 			<div class="formulario__grupo" id="grupo__nombre">
 				<label for="nombre" class="formulario__label">Apellidos</label>
 				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Ingrese sus apellidos">
+					<input type="text" class="formulario__input" name="nombre" id="nombre"
+						placeholder="Ingrese sus apellidos">
 					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
 				</div>
-				<p class="formulario__input-error">El apellido tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guión bajo</p>
+				<p class="formulario__input-error">El apellido tiene que ser de 4 a 16 dígitos y solo puede contener
+					números, letras y guión bajo</p>
 			</div>
 
 			<div class="formulario__grupo" id="grupo__correo">
 				<label for="correo" class="formulario__label">Correo Electrónico</label>
 				<div class="formulario__grupo-input">
-					<input type="correo" class="formulario__input" name="correo" id="correo" placeholder="Ingrese su correo">
+					<input type="correo" class="formulario__input" name="correo" id="correo"
+						placeholder="Ingrese su correo">
 					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
 				</div>
-				<p class="formulario__input-error">El correo solo puede contener letras, números, puntos, guiones y guión bajo</p>
+				<p class="formulario__input-error">El correo solo puede contener letras, números, puntos, guiones y
+					guión bajo</p>
 			</div>
 
 			<div class="formulario__grupo" id="grupo__telefono">
 				<label for="telefono" class="formulario__label">Teléfono</label>
 				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="Ingrese su telefono">
+					<input type="text" class="formulario__input" name="telefono" id="telefono"
+						placeholder="Ingrese su telefono">
 					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
 				</div>
-				<p class="formulario__input-error">El teléfono solo puede contener números y el máximo son 14 dígitos</p>
+				<p class="formulario__input-error">El teléfono solo puede contener números y el máximo son 14 dígitos
+				</p>
 			</div>
 
 			<div class="formulario__grupo" id="grupo__destino">
@@ -60,13 +70,13 @@
 					</select>
 				</div>
 				<p id="alertErrorDestino"></p>
-			</div>		
+			</div>
 
 			<div class="formulario__grupo" id="grupo__adultos">
 				<label for="adultos" class="formulario__label">Número de Adultos</label>
 				<div class="formulario__grupo-input">
 					<select class="formulario__input" name="adultos" id="adultos">
-						<option value="" >Selecciona el número de adultos</option>
+						<option value="">Selecciona el número de adultos</option>
 						<option value="0">0</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -96,28 +106,56 @@
 			<div class="formulario__grupo" id="grupo__edadAdultos">
 				<label for="edadAdultos" class="formulario__label">Clase </label>
 				<div class="formulario__grupo-input ContentFormsRadios">
- 
-							<div class="form-check FormsRadios">
-								<input class="form-check-input" type="radio" name="RadiosClases" id="RadioClase1"
-									value="Primera Clase">
-								<label class="form-check-label" for="RadioAdulto1">Primera Clase</label>
-							</div> 
-							<div class="form-check FormsRadios">
-								<input class="form-check-input" type="radio" name="RadiosClases" id="RadioClase2"
-									value="Clase turista">
-								<label class="form-check-label" for="RadioAdulto3">Clase turista</label>
-							</div>  
+
+					<div class="form-check FormsRadios">
+						<input class="form-check-input" type="radio" name="RadiosClases" id="RadioClase1"
+							value="Primera Clase">
+						<label class="form-check-label" for="RadioAdulto1">Primera Clase</label>
+					</div>
+					<div class="form-check FormsRadios">
+						<input class="form-check-input" type="radio" name="RadiosClases" id="RadioClase2"
+							value="Clase turista">
+						<label class="form-check-label" for="RadioAdulto3">Clase turista</label>
+					</div>
 				</div>
-				<p id="alertErrorClase"></p> 
+				<p id="alertErrorClase"></p>
+			</div>
+
+			<div class="tipo">
+				<label for="tipo">Seleccione el tipo: </label>
+
+				<input type="radio" id="tipo1" name="tipo">
+				Ida/ Regreso
+				<input type="radio" id="tipo2" name="tipo">
+				Sin Regreso
+
+			</div>
+
+			<div class="formulario__grupo" id="fecha_salida">
+				<label for="fechasalida" class="formulario__label"> Fecha de Salida</label>
+				<div class="formulario__grupo-input">
+					<input id="fechasalida" type="date" name="fecha-salida" />
+				</div>
+				<p id="alertErrorSalida"></p>
+			</div>
+
+			<div class="formulario__grupo" id="fecharetornoL">
+				<label for="fecharetorno" class="formulario__label"> Fecha de Retorno</label>
+				<div class="formulario__grupo-input">
+					<input id="fecha-retorno" type="date" name="fecha-retorno" />
+				</div>
+				<p id="alertErrorRetorno"></p>
 			</div>
 
 			<div class="formulario__mensaje" id="formulario__mensaje">
-				<p><i class="fa-solid fa-triangle-exclamation"></i> <b>Error:</b> Por favor rellena el formulario correctamente</p>
+				<p><i class="fa-solid fa-triangle-exclamation"></i> <b>Error:</b> Por favor rellena el formulario
+					correctamente</p>
 			</div>
 
 			<div class="formulario__grupo formulario__grupo-btn-enviar">
 				<button type="submit" class="formulario__btn">Enviar</button>
-				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!
+				</p>
 			</div>
 		</form>
 	</main>
@@ -125,4 +163,5 @@
 	<script src="js/formulario.js"></script>
 	<script src="https://kit.fontawesome.com/877569575c.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
