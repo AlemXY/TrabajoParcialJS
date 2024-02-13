@@ -157,23 +157,6 @@ main {
 	border: 3px solid #BB2929;
 }
 
-/* Mediaqueries */
-@media screen and (max-width: 800px) {
-	.formulario {
-		grid-template-columns: 1fr;
-	}
-
-	.formulario__grupo-terminos, 
-	.formulario__mensaje, 
-	.formulario__grupo-btn-enviar {
-		grid-column: 1;
-	}
-
-	.formulario__btn {
-		width: 100%;
-	}
-}
-
 .ContentFormsRadios{
 	display: flex;
 	height: 45px;
@@ -185,7 +168,4 @@ main {
 	width: 50%;
 }
 
-/*mar*/
-.tipo{
-    grid-column: span 2; 
-}
+

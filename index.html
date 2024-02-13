@@ -8,15 +8,16 @@
 	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 
 <body>
 	<main>
-		<form action="" class="formulario" id="formulario" name="formulario">
-			<div class="formulario__grupo" id="grupo__usuario">
+		<form action="" class="formulario row g-1  justify-content-center" id="formulario" name="formulario">
+			<div class="formulario__grupo col-md-5 " id="grupo__usuario">
 				<label for="usuario" class="formulario__label">Nombres</label>
 				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="usuario" id="usuario"
+					<input type="text" class="formulario__input form-control" name="usuario" id="usuario"
 						placeholder="Ingrese sus nombres">
 					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
 				</div>
@@ -24,10 +25,10 @@
 					números, letras y guión bajo</p>
 			</div>
 
-			<div class="formulario__grupo" id="grupo__nombre">
+			<div class="formulario__grupo col-md-5" id="grupo__nombre">
 				<label for="nombre" class="formulario__label">Apellidos</label>
 				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="nombre" id="nombre"
+					<input type="text" class="formulario__input form-control" name="nombre" id="nombre"
 						placeholder="Ingrese sus apellidos">
 					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
 				</div>
@@ -35,10 +36,10 @@
 					números, letras y guión bajo</p>
 			</div>
 
-			<div class="formulario__grupo" id="grupo__correo">
+			<div class="formulario__grupo col-md-5" id="grupo__correo">
 				<label for="correo" class="formulario__label">Correo Electrónico</label>
 				<div class="formulario__grupo-input">
-					<input type="correo" class="formulario__input" name="correo" id="correo"
+					<input type="correo" class="formulario__input form-control" name="correo" id="correo"
 						placeholder="Ingrese su correo">
 					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
 				</div>
@@ -46,21 +47,21 @@
 					guión bajo</p>
 			</div>
 
-			<div class="formulario__grupo" id="grupo__telefono">
+			<div class="formulario__grupo col-md-5" id="grupo__telefono">
 				<label for="telefono" class="formulario__label">Teléfono</label>
-				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="telefono" id="telefono"
-						placeholder="Ingrese su telefono">
+				<div class="formulario__grupo-input input-group">
+					<span class="input-group-text" id="basic-addon1">+ 51</span>
+					<input type="text" class="formulario__input form-control" name="telefono" id="telefono" placeholder="Ingrese su telefono" >
 					<i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
 				</div>
 				<p class="formulario__input-error">El teléfono solo puede contener números y el máximo son 14 dígitos
 				</p>
 			</div>
 
-			<div class="formulario__grupo" id="grupo__destino">
-				<label for="destino" class="formulario__label">Destino Turístico</label>
+			<div class="formulario__grupo col-md-5" id="grupo__destino">
+				<label for="destino" class="formulario__label ">Destino Turístico</label>
 				<div class="formulario__grupo-input">
-					<select class="formulario__input" name="destino" id="destino">
+					<select class="formulario__input form-select" name="destino" id="destino">
 						<option value="">Selecciona un destino</option>
 						<option value="destino1">Destino 1</option>
 						<option value="destino2">Destino 2</option>
@@ -72,10 +73,10 @@
 				<p id="alertErrorDestino"></p>
 			</div>
 
-			<div class="formulario__grupo" id="grupo__adultos">
+			<div class="formulario__grupo col-md-5" id="grupo__adultos">
 				<label for="adultos" class="formulario__label">Número de Adultos</label>
-				<div class="formulario__grupo-input">
-					<select class="formulario__input" name="adultos" id="adultos">
+				<div class="formulario__grupo-input ">
+					<select class="formulario__input form-select" name="adultos" id="adultos">
 						<option value="">Selecciona el número de adultos</option>
 						<option value="0">0</option>
 						<option value="1">1</option>
@@ -88,10 +89,10 @@
 				<p id="alertErrorAdulto"></p>
 			</div>
 
-			<div class="formulario__grupo" id="grupo__ninos">
+			<div class="formulario__grupo col-md-5" id="grupo__ninos">
 				<label for="ninos" class="formulario__label">Número de Niños</label>
 				<div class="formulario__grupo-input">
-					<select class="formulario__input" name="ninos" id="ninos">
+					<select class="formulario__input form-select" name="ninos" id="ninos">
 						<option value="">Selecciona el número de niños</option>
 						<option value="0">0</option>
 						<option value="1">1</option>
@@ -103,7 +104,7 @@
 				<p id="alertErrorNinos"></p>
 			</div>
 
-			<div class="formulario__grupo" id="grupo__edadAdultos">
+			<div class="formulario__grup col-md-5" id="grupo__edadAdultos">
 				<label for="edadAdultos" class="formulario__label">Clase </label>
 				<div class="formulario__grupo-input ContentFormsRadios">
 
@@ -121,17 +122,23 @@
 				<p id="alertErrorClase"></p>
 			</div>
 
-			<div class="tipo">
-				<label for="tipo">Seleccione el tipo: </label>
-
-				<input type="radio" id="tipo1" name="tipo">
-				Ida/ Regreso
-				<input type="radio" id="tipo2" name="tipo">
-				Sin Regreso
+			<div class=" tipo col-md-10">
+				<label for="tipo" class="formulario__label">Seleccione el tipo: </label>
+				<div class="formulario__grupo-input ContentFormsRadios">
+				<div class="form-check FormsRadios">
+					<input class="form-check-input" type="radio" name="tipo" id="tipo1">
+					<label class="form-check-label" for="RadioAdulto1">Ida/Regreso</label>
+				</div>
+				<div class="form-check FormsRadios">
+					<input class="form-check-input" type="radio" name="tipo" id="tipo2">
+					<label class="form-check-label" for="RadioAdulto3">Sin Regreso</label>
+				</div>
+				</div>
+				
 
 			</div>
 
-			<div class="formulario__grupo" id="fecha_salida">
+			<div class="formulario__grupo col-md-5" id="fecha_salida">
 				<label for="fechasalida" class="formulario__label"> Fecha de Salida</label>
 				<div class="formulario__grupo-input">
 					<input id="fechasalida" type="date" name="fecha-salida" />
@@ -139,10 +146,10 @@
 				<p id="alertErrorSalida"></p>
 			</div>
 
-			<div class="formulario__grupo" id="fecharetornoL">
+			<div class="formulario__grupo col-md-5" id="fecharetornoL">
 				<label for="fecharetorno" class="formulario__label"> Fecha de Retorno</label>
 				<div class="formulario__grupo-input">
-					<input id="fecha-retorno" type="date" name="fecha-retorno" />
+					<input id="fecharetorno" type="date" name="fecha-retorno" />
 				</div>
 				<p id="alertErrorRetorno"></p>
 			</div>
@@ -152,9 +159,9 @@
 					correctamente</p>
 			</div>
 
-			<div class="formulario__grupo formulario__grupo-btn-enviar">
+			<div class="formulario__grupo formulario__grupo-btn-enviar ">
 				<button type="submit" class="formulario__btn">Enviar</button>
-				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!
+				<p class="formulario__mensaje-exito " id="formulario__mensaje-exito">Formulario enviado exitosamente!
 				</p>
 			</div>
 		</form>

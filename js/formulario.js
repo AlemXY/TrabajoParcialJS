@@ -1,11 +1,10 @@
 const formulario = document.getElementById("formulario");
 const inputs = document.querySelectorAll("#formulario input");
-
+ 
 const destino = document.getElementById("destino");
 const adultos = document.getElementById("adultos");
 const ninos = document.getElementById("ninos");
 
-/*Expresiones regulares*/
 const expresiones = {
 	usuario: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
@@ -16,7 +15,6 @@ const expresiones = {
 	ninos: /^[0-9]+$/,
 }
 
-/*Objeto de los campos principales con un inicio en false*/
 const campos = {
 	usuario: false,
 	nombre: false,
@@ -25,10 +23,11 @@ const campos = {
 	destino: false,
 	adultos: false,
 	ninos: false,
-	RadiosClases: false
+	RadiosClases: false,
+	salida:false,
+	retorno:false,
 }
 
-/*Switch para validar los campos input del formulario*/
 const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "usuario":
@@ -45,8 +44,7 @@ const validarFormulario = (e) => {
 			break; 
 	}
 }
-
-/*Validación de los campos e iconos*/
+ 
 const validarCampo = (expresion, input, campo) => {
 	if (expresion.test(input.value)) {
 		document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-incorrecto");
@@ -65,21 +63,20 @@ const validarCampo = (expresion, input, campo) => {
 	}
 }
 
-/*Eventos al escribir y clickear en los inputs*/
 inputs.forEach((input) => {
 	input.addEventListener("keyup", validarFormulario);
 	input.addEventListener("blur", validarFormulario);
 });
 
 
-/*Validación al presionar el botón*/
+
 formulario.addEventListener("submit", (e) => {
 	e.preventDefault();
 	validarSelects();
 	validarRadios(); 
 	validarFecha();
 
-	if (campos.usuario && campos.nombre && campos.correo && campos.telefono && campos.destino && campos.adultos && campos.ninos && campos.RadiosClases) {
+	if (campos.usuario && campos.nombre && campos.correo && campos.telefono && campos.destino && campos.adultos && campos.ninos && campos.RadiosClases &&campos.salida && campos.retorno) {
 		formulario.reset();
 
 		document.getElementById("formulario__mensaje-exito").classList.add("formulario__mensaje-exito-activo");
@@ -98,7 +95,7 @@ formulario.addEventListener("submit", (e) => {
 	}
 });
 
-/*Validación de selects*/
+
 function validarSelects() {
 	destino.value !== ''
 		? ( 
@@ -133,7 +130,6 @@ function validarSelects() {
  
 }
 
-/*Validación de radios*/
 function validarRadios() {
 
 	var respuesta = "no";
@@ -174,35 +170,33 @@ function validarFecha()
 {
     // Validar fechas de salida y retorno
     var fechaSalida = new Date(document.getElementById("fechasalida").value);
-    var fechaRetorno = new Date(document.getElementById("fecha-retorno").value);
+    var fechaRetorno = new Date(document.getElementById("fecharetorno").value);
     var fechaSalidaValidation = document.getElementById("alertErrorSalida");
     var fechaRetornoValidation = document.getElementById("alertErrorRetorno");
 
-    // Limpiar mensajes de validación anteriores
-    fechaSalidaValidation.innerHTML = "";
-    fechaRetornoValidation.innerHTML = "";
+    
 
     if (!fechaSalida || isNaN(fechaSalida.getTime())) {
         fechaSalidaValidation.innerHTML = "Seleccione una fecha de salida";
-        campos.destino = false;
+        campos.salida = false;
     } else {
         fechaSalidaValidation.innerHTML = "";
-        campos.destino = true;
+        campos.salida = true;
     }
 
     if (!fechaRetorno || isNaN(fechaRetorno.getTime())) {
         fechaRetornoValidation.innerHTML = "Seleccione una fecha de retorno";
-        campos.adultos = false;
+        campos.retorno = false;
     } else {
         fechaRetornoValidation.innerHTML = "";
-        campos.adultos = true;
+        campos.retorno = true;
     }
 
     if (fechaRetorno < fechaSalida) {
         fechaRetornoValidation.innerHTML = "La fecha de retorno debe ser igual o posterior a la fecha de salida";
-        campos.ninos = false;
+        campos.retorno = false;
     } else {
         fechaRetornoValidation.innerHTML = "";
-        campos.ninos = true;
+        campos.retorno = true;
     }
 }
